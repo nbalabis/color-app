@@ -1,11 +1,16 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 import './MiniPalette.css'
 
 function MiniPalette(props) {
-    const { paletteName, emoji, colors } = props
+    const { paletteName, emoji, colors, id } = props
+    let navigate = useNavigate()
+    const handleClick = () => {
+        navigate(`/palette/${id}`)
+    }
 
     return (
-        <div className='MiniPalette'>
+        <div className='MiniPalette' onClick={handleClick}>
             <div className='colors'>
                 {colors.map(color => (
                     <div
