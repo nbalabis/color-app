@@ -8,9 +8,9 @@ function Palette(props) {
     const [format, setFormat] = useState('hex')
     const [snackbarOpen, setSnackbarOpen] = useState(false)
 
-    const { colors } = props.palette
+    const { colors, paletteName, emoji } = props.palette
     const colorBoxes = colors[level].map(color => (
-        <ColorBox background={color[format]} name={color.name} />
+        <ColorBox background={color[format]} name={color.name} key={color.id} />
     ))
     const changeFormat = (evt) => {
         setFormat(evt.target.value)
@@ -32,7 +32,10 @@ function Palette(props) {
             <div className='Palette-colors'>
                 {colorBoxes}
             </div>
-            {/* Footer goes here */}
+            <footer className='Palette-footer'>
+                {paletteName}
+                <span className='emoji'>{emoji}</span>
+            </footer>
         </div>
     );
 }
