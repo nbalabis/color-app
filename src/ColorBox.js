@@ -5,7 +5,7 @@ import './ColorBox.css'
 
 function ColorBox(props) {
     const [copied, setCopied] = useState(false)
-    const { name, background } = props
+    const { name, background, paletteId, colorId } = props
 
     const handleClick = () => {
         setCopied(true)
@@ -26,7 +26,7 @@ function ColorBox(props) {
                     </div>
                     <button className='copy-button'>Copy</button>
                 </div>
-                <Link to='/' onClick={evt => evt.stopPropagation()}>
+                <Link to={`/palette/${paletteId}/${colorId}`} onClick={evt => evt.stopPropagation()}>
                     <span className='see-more'>More</span>
                 </Link>
             </div>

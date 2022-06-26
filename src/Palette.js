@@ -19,7 +19,13 @@ function Palette() {
     const { colors, paletteName, emoji } = palette
 
     const colorBoxes = colors[level].map(color => (
-        <ColorBox background={color[format]} name={color.name} key={color.id} />
+        <ColorBox
+            background={color[format]}
+            name={color.name}
+            key={color.id}
+            colorId={color.id}
+            paletteId={id}
+        />
     ))
     const changeFormat = (evt) => {
         setFormat(evt.target.value)

@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 import seedColors from './seedColors'
 import PaletteList from './PaletteList'
 import Palette from "./Palette";
+import SingleColorPalette from './SingleColorPalette';
 
 function App() {
   return (
@@ -9,7 +10,7 @@ function App() {
       <Routes>
         <Route path='/' element={<PaletteList palettes={seedColors} />} />
         <Route path='/palette/:id' element={<Palette />} />
-        <Route path='/palette/:paletteId/:colorId' element={<h1>single color page</h1>} />
+        <Route path='/palette/:paletteId/:colorId' element={<SingleColorPalette />} />
       </Routes>
     </div>
   );
