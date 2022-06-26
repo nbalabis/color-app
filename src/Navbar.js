@@ -1,10 +1,12 @@
 import React from 'react';
-import Slider, { Range } from 'rc-slider';
+import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
+import Select from '@mui/material/Select'
+import MenuItem from '@mui/material/MenuItem';
 import './Navbar.css'
 
 function Navbar(props) {
-    const { level, setLevel } = props
+    const { level, setLevel, format, handleChange } = props
 
     return (
         <header className='Navbar'>
@@ -35,6 +37,16 @@ function Navbar(props) {
                         railStyle={{ height: "8px" }}
                     />
                 </div>
+            </div>
+            <div className='select-container'>
+                <Select 
+                    onChange={handleChange}
+                    value={format}
+                >
+                    <MenuItem value='hex'>HEX - #ffffff</MenuItem>
+                    <MenuItem value='rgb'>RGB - rgb(255, 255, 255)</MenuItem>
+                    <MenuItem value='rgba'>RGBA - rgb(255, 255, 255, 1.0)</MenuItem>
+                </Select>
             </div>
         </header>
     );
