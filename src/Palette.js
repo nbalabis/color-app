@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import seedColors from './seedColors'
-import { generatePalette } from './colorHelpers'
+import { getPalette, gatherShades } from './paletteHelpers'
 import Navbar from './Navbar';
 import ColorBox from './ColorBox';
 import './Palette.css'
@@ -12,10 +11,7 @@ function Palette() {
     const [snackbarOpen, setSnackbarOpen] = useState(false)
 
     let { id } = useParams()
-    const findPalette = (id) => {
-        return seedColors.find(palette => palette.id === id)
-    }
-    const palette = generatePalette(findPalette(id))
+    const palette = getPalette(id)
     const { colors, paletteName, emoji } = palette
 
     const colorBoxes = colors[level].map(color => (
@@ -25,6 +21,7 @@ function Palette() {
             key={color.id}
             colorId={color.id}
             paletteId={id}
+            showLink={true}
         />
     ))
     const changeFormat = (evt) => {
