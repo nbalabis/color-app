@@ -17,7 +17,7 @@ function App() {
     <div style={{ overflow: 'hidden' }}>
       <Routes>
         <Route path='/' element={<PaletteList palettes={allPalettes} />} />
-        <Route path='/palette/new' element={<NewPaletteForm savePalette={savePalette} />} />
+        <Route path='/palette/new' element={<NewPaletteForm savePalette={savePalette} palettes={allPalettes} />} />
         <Route path='/palette/:id' element={<Palette palettes={allPalettes} />} />
         <Route path='/palette/:paletteId/:colorId' element={<SingleColorPalette palettes={allPalettes} />} />
       </Routes>
