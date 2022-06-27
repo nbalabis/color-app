@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom";
-import './MiniPalette.css'
+import './styles/MiniPalette.css'
 
 function MiniPalette(props) {
     const { paletteName, emoji, colors, id } = props

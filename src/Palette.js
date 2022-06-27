@@ -4,7 +4,7 @@ import { getPalette } from './paletteHelpers'
 import Navbar from './Navbar';
 import ColorBox from './ColorBox';
 import PaletteFooter from './PaletteFooter';
-import './Palette.css'
+import './styles/Palette.css'
 
 function Palette() {
     const [level, setLevel] = useState(500)

@@ -7,7 +7,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Snackbar from '@mui/material/Snackbar';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
-import './Navbar.css'
+import './styles/Navbar.css'
 
 function Navbar(props) {
     const { level, setLevel, format, handleChange, open, handleClose, showingAllColors } = props

@@ -1,6 +1,6 @@
 import React from 'react';
 import MiniPalette from './MiniPalette';
-import './PaletteList.css'
+import './styles/PaletteList.css'
 
 function PaletteList(props) {
     const { palettes } = props
