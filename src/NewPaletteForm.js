@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
@@ -15,6 +15,7 @@ import Button from '@mui/material/Button';
 import { ChromePicker } from 'react-color';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 import DraggableColorList from './DraggableColorList';
+import PaletteFormNav from './PaletteFormNav';
 import { arrayMoveImmutable } from 'array-move';
 
 const drawerWidth = 400;
@@ -137,32 +138,14 @@ function NewPaletteForm(props) {
 
     return (
         <Box sx={{ display: 'flex' }}>
-            <CssBaseline />
-            <AppBar position="fixed" open={open} color='default'>
-                <Toolbar>
-                    <IconButton
-                        color="inherit"
-                        aria-label="open drawer"
-                        onClick={handleDrawerOpen}
-                        edge="start"
-                        sx={{ mr: 2, ...(open && { display: 'none' }) }}
-                    >
-                        <MenuIcon />
-                    </IconButton>
-                    <Typography variant="h6" noWrap component="div">
-                        Persistent drawer
-                    </Typography>
-                    <ValidatorForm onSubmit={handleSubmit}>
-                        <TextValidator
-                            value={newPaletteName}
-                            onChange={(evt) => setNewPaletteName(evt.target.value)}
-                            validators={['required', 'paletteNameUnique']}
-                            errorMessages={['Enter a palette name', 'Name already used']}
-                        />
-                        <Button type='submit' variant='contained' color='primary'>Save Palette</Button>
-                    </ValidatorForm>
-                </Toolbar>
-            </AppBar>
+            <PaletteFormNav
+                AppBar={AppBar}
+                open={open}
+                handleDrawerOpen={handleDrawerOpen}
+                handleSubmit={handleSubmit}
+                newPaletteName={newPaletteName}
+                setNewPaletteName={setNewPaletteName}
+            />
             <Drawer
                 sx={{
                     width: drawerWidth,
