@@ -1,4 +1,5 @@
 import React from 'react';
+import { SortableElement } from 'react-sortable-hoc';
 import DeleteIcon from '@mui/icons-material/Delete';
 import './styles/DraggableColorBox.css'
 
@@ -14,4 +15,4 @@ function DraggableColorBox(props) {
     );
 }
 
-export default DraggableColorBox;
+export default SortableElement(DraggableColorBox);
