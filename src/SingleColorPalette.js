@@ -10,8 +10,8 @@ function SingleColorPalette(props) {
     const [format, setFormat] = useState('hex')
     const [snackbarOpen, setSnackbarOpen] = useState(false)
 
-    let { paletteId, colorId } = useParams()
-    const palette = getPalette(paletteId)
+    const { paletteId, colorId } = useParams()
+    const palette = getPalette(paletteId, props.palettes)
     const { paletteName, emoji } = palette
     const shades = gatherShades(palette, colorId).slice(1)
 

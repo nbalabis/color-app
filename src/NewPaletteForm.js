@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
@@ -63,11 +64,12 @@ const DrawerHeader = styled('div')(({ theme }) => ({
     justifyContent: 'flex-end',
 }));
 
-function NewPaletteForm() {
+function NewPaletteForm(props) {
     const [open, setOpen] = useState(true);
     const [currentColor, setCurrentColor] = useState('purple')
     const [newName, setNewName] = useState('')
     const [colors, setColors] = useState([])
+    let navigate = useNavigate()
 
     useEffect(() => {
         ValidatorForm.addValidationRule('isColorNameUnique', (value) => {
@@ -96,10 +98,21 @@ function NewPaletteForm() {
         setNewName('')
     }
 
+    const handleSubmit = () => {
+        let newName = 'New Test Palette'
+        const newPalette = {
+            paletteName: newName,
+            id: newName.toLowerCase().replace(/ /g, '-'),
+            colors: colors
+        }
+        props.savePalette(newPalette)
+        navigate('/')
+    }
+
     return (
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
-            <AppBar position="fixed" open={open}>
+            <AppBar position="fixed" open={open} color='default'>
                 <Toolbar>
                     <IconButton
                         color="inherit"
@@ -113,6 +126,7 @@ function NewPaletteForm() {
                     <Typography variant="h6" noWrap component="div">
                         Persistent drawer
                     </Typography>
+                    <Button variant='contained' color='primary' onClick={handleSubmit}>Save Palette</Button>
                 </Toolbar>
             </AppBar>
             <Drawer

@@ -1,8 +1,7 @@
-import seedColors from './seedColors'
 import { generatePalette } from './colorHelpers'
 
-const getPalette = (id) => {
-    return generatePalette(seedColors.find(palette => palette.id === id))
+const getPalette = (id, palettes) => {
+    return generatePalette(palettes.find(palette => palette.id === id))
 }
 const gatherShades = (palette, colorToFilterBy) => {
     let shades = []

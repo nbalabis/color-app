@@ -6,13 +6,13 @@ import ColorBox from './ColorBox';
 import PaletteFooter from './PaletteFooter';
 import './styles/Palette.css'
 
-function Palette() {
+function Palette(props) {
     const [level, setLevel] = useState(500)
     const [format, setFormat] = useState('hex')
     const [snackbarOpen, setSnackbarOpen] = useState(false)
 
-    let { id } = useParams()
-    const palette = getPalette(id)
+    const { id } = useParams()
+    const palette = getPalette(id, props.palettes)
     const { colors, paletteName, emoji } = palette
 
     const colorBoxes = colors[level].map(color => (
