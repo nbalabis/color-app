@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
@@ -10,8 +10,10 @@ import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import Button from '@mui/material/Button';
+import { ChromePicker } from 'react-color';
 
-const drawerWidth = 240;
+const drawerWidth = 400;
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
     ({ theme, open }) => ({
@@ -59,7 +61,8 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 }));
 
 function NewPaletteForm() {
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState(false);
+    const [color, setColor] = useState('purple')
 
     const handleDrawerOpen = () => {
         setOpen(true);
@@ -107,10 +110,19 @@ function NewPaletteForm() {
                     </IconButton>
                 </DrawerHeader>
                 <Divider />
-
+                <Typography variant='h4'>Design Your Palette</Typography>
+                <div>
+                    <Button variant="contained" color='secondary'>Clear Palette</Button>
+                    <Button variant="contained" color='primary'>Random Color</Button>
+                </div>
+                <ChromePicker
+                    color={color}
+                    onChange={newColor => setColor(newColor)}
+                />
+                <Button variant='contained' color='primary'>ADD COLOR</Button>
             </Drawer>
             <Main open={open}>
-
+                <DrawerHeader />
 
             </Main>
         </Box>
