@@ -1,6 +1,5 @@
 import seedColors from './seedColors'
 import { generatePalette } from './colorHelpers'
-import ColorBox from './ColorBox'
 
 const getPalette = (id) => {
     return generatePalette(seedColors.find(palette => palette.id === id))

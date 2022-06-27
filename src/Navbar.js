@@ -10,7 +10,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import './Navbar.css'
 
 function Navbar(props) {
-    const { level, setLevel, format, handleChange, open, handleClose } = props
+    const { level, setLevel, format, handleChange, open, handleClose, showingAllColors } = props
 
     const handleSelect = (evt) => {
         handleChange(evt)
@@ -23,31 +23,33 @@ function Navbar(props) {
                     reactcolorpicker
                 </Link>
             </div>
-            <div className='slider-container'>
-                <span>Level: {level}</span>
-                <div className='slider'>
-                    <Slider
-                        defaultValue={level}
-                        min={100}
-                        max={900}
-                        step={100}
-                        onChange={(level) => setLevel(level)}
-                        trackStyle={[{ backgroundColor: "transparent" }]}
-                        handleStyle={[
-                            {
-                                backgroundColor: "green",
-                                outline: "none",
-                                border: "2px solid green",
-                                boxShadow: "none",
-                                width: "13px",
-                                height: "13px",
-                                marginTop: "-3px",
-                            },
-                        ]}
-                        railStyle={{ height: "8px" }}
-                    />
+            {showingAllColors && (
+                <div className='slider-container'>
+                    <span>Level: {level}</span>
+                    <div className='slider'>
+                        <Slider
+                            defaultValue={level}
+                            min={100}
+                            max={900}
+                            step={100}
+                            onChange={(level) => setLevel(level)}
+                            trackStyle={[{ backgroundColor: "transparent" }]}
+                            handleStyle={[
+                                {
+                                    backgroundColor: "green",
+                                    outline: "none",
+                                    border: "2px solid green",
+                                    boxShadow: "none",
+                                    width: "13px",
+                                    height: "13px",
+                                    marginTop: "-3px",
+                                },
+                            ]}
+                            railStyle={{ height: "8px" }}
+                        />
+                    </div>
                 </div>
-            </div>
+            )}
             <div className='select-container'>
                 <Select
                     onChange={handleSelect}
