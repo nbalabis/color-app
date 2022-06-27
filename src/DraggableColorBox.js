@@ -2,10 +2,10 @@ import React from 'react';
 import './styles/DraggableColorBox.css'
 
 function DraggableColorBox(props) {
-    const { color } = props
+    const { color, name } = props
     return (
         <div className='DraggableColorBox' style={{ backgroundColor: color }}>
-            {color}
+            {name}
         </div>
     );
 }
