@@ -1,71 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
-import MuiAppBar from '@mui/material/AppBar';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import Button from '@mui/material/Button';
 import { ValidatorForm } from 'react-material-ui-form-validator';
 import DraggableColorList from './DraggableColorList';
 import PaletteFormNav from './PaletteFormNav';
 import ColorPickerForm from './ColorPickerForm';
 import { arrayMoveImmutable } from 'array-move';
+import Styles from './styles/NewPaletteFormStyles'
 
-const drawerWidth = 400;
+const { Main, AppBar, DrawerHeader, DrawerContainer, drawerWidth, ColorNameInput, AddButton, ButtonSection, Button } = Styles
 const maxColors = 20;
-
-const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
-    ({ theme, open }) => ({
-        height: 'calc(100vh - 64px)',
-        flexGrow: 1,
-        padding: theme.spacing(3),
-        transition: theme.transitions.create('margin', {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.leavingScreen,
-        }),
-        marginLeft: `-${drawerWidth}px`,
-        ...(open && {
-            transition: theme.transitions.create('margin', {
-                easing: theme.transitions.easing.easeOut,
-                duration: theme.transitions.duration.enteringScreen,
-            }),
-            marginLeft: 0,
-        }),
-    }),
-);
-
-const AppBar = styled(MuiAppBar, {
-    shouldForwardProp: (prop) => prop !== 'open',
-})(({ theme, open }) => ({
-    transition: theme.transitions.create(['margin', 'width'], {
-        easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.leavingScreen,
-    }),
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    height: '64px',
-    ...(open && {
-        width: `calc(100% - ${drawerWidth}px)`,
-        marginLeft: `${drawerWidth}px`,
-        transition: theme.transitions.create(['margin', 'width'], {
-            easing: theme.transitions.easing.easeOut,
-            duration: theme.transitions.duration.enteringScreen,
-        }),
-    }),
-}));
-
-const DrawerHeader = styled('div')(({ theme }) => ({
-    display: 'flex',
-    alignItems: 'center',
-    padding: theme.spacing(0, 1),
-    // necessary for content to be below app bar
-    ...theme.mixins.toolbar,
-    justifyContent: 'flex-end',
-}));
 
 function NewPaletteForm(props) {
     const [open, setOpen] = useState(true);
@@ -153,7 +102,9 @@ function NewPaletteForm(props) {
                     '& .MuiDrawer-paper': {
                         width: drawerWidth,
                         boxSizing: 'border-box',
-                    },
+                        display: 'flex',
+                        alignItems: 'center'
+                    }
                 }}
                 variant="persistent"
                 anchor="left"
@@ -165,32 +116,55 @@ function NewPaletteForm(props) {
                     </IconButton>
                 </DrawerHeader>
                 <Divider />
-                <Typography variant='h4'>Design Your Palette</Typography>
-                <div>
-                    <Button
-                        variant="contained"
-                        color='secondary'
-                        onClick={() => setColors([])}
-                    >
-                        Clear Palette
-                    </Button>
-                    <Button
-                        variant="contained"
-                        color='primary'
-                        onClick={addRandomColor}
-                        disabled={paletteIsFull}
-                    >
-                        Random Color
-                    </Button>
-                </div>
-                <ColorPickerForm
-                    currentColor={currentColor}
-                    setCurrentColor={setCurrentColor}
-                    addNewColor={addNewColor}
-                    newColorName={newColorName}
-                    setNewColorName={setNewColorName}
-                    paletteIsFull={paletteIsFull}
-                />
+                <DrawerContainer>
+                    <Typography variant='h4' gutterBottom>Design Your Palette</Typography>
+                    <ButtonSection>
+                        <Button
+                            variant="contained"
+                            color='secondary'
+                            onClick={() => setColors([])}
+                        >
+                            Clear Palette
+                        </Button>
+                        <Button
+                            variant="contained"
+                            color='primary'
+                            onClick={addRandomColor}
+                            disabled={paletteIsFull}
+                        >
+                            Random Color
+                        </Button>
+                    </ButtonSection>
+                    <ColorPickerForm
+                        currentColor={currentColor}
+                        setCurrentColor={setCurrentColor}
+                        addNewColor={addNewColor}
+                        newColorName={newColorName}
+                        setNewColorName={setNewColorName}
+                        paletteIsFull={paletteIsFull}
+                    />
+                    <ValidatorForm onSubmit={addNewColor} style={{ width: '100%' }}>
+                        <ColorNameInput
+                            placeholder='Color Name'
+                            margin='normal'
+                            variant='filled'
+                            value={newColorName}
+                            onChange={(evt) => setNewColorName(evt.target.value)}
+                            validators={['required', 'colorNameUnique', 'colorUnique']}
+                            errorMessages={['Enter a color name', 'Name must be unique', 'Color already used']}
+                        />
+                        <AddButton
+                            className='add-color-btn'
+                            type='submit'
+                            variant='contained'
+                            color='primary'
+                            style={{ backgroundColor: paletteIsFull ? 'grey' : currentColor }}
+                            disabled={paletteIsFull}
+                        >
+                            {paletteIsFull ? 'PALETTE FULL' : 'ADD COLOR'}
+                        </AddButton>
+                    </ValidatorForm>
+                </DrawerContainer>
             </Drawer>
             <Main open={open}>
                 <DrawerHeader />
