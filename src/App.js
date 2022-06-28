@@ -14,7 +14,7 @@ function App() {
   }
 
   return (
-    <div style={{ overflow: 'hidden' }}>
+    <div>
       <Routes>
         <Route path='/' element={<PaletteList palettes={allPalettes} />} />
         <Route path='/palette/new' element={<NewPaletteForm savePalette={savePalette} palettes={allPalettes} />} />
