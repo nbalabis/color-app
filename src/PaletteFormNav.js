@@ -4,7 +4,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
+import ColorLensIcon from '@mui/icons-material/ColorLens';
 import PaletteMetaForm from './PaletteMetaForm';
 import Styles from './styles/PaletteFormNavStyles'
 
@@ -35,7 +35,7 @@ function PaletteFormNav(props) {
                         edge="start"
                         sx={{ mr: 2, ...(open && { display: 'none' }) }}
                     >
-                        <MenuIcon />
+                        <ColorLensIcon />
                     </IconButton>
                     <Typography variant="h6" noWrap component="div">
                         Create A Palette
