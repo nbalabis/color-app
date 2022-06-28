@@ -20,6 +20,10 @@ function PaletteFormNav(props) {
         setFormShowing(true)
     }
 
+    const hideForm = () => {
+        setFormShowing(false)
+    }
+
     return (
         <div className='PaletteFormNav'>
             <CssBaseline />
@@ -53,6 +57,7 @@ function PaletteFormNav(props) {
                     newPaletteName={newPaletteName}
                     setNewPaletteName={setNewPaletteName}
                     palettes={palettes}
+                    hideForm={hideForm}
                 />
             )}
         </div>
