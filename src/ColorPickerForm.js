@@ -1,6 +1,7 @@
 import React from 'react';
-import { ChromePicker } from 'react-color';
-import './styles/ColorPickerForm.css'
+import Styles from './styles/ColorPickerFormStyles'
+
+const {ChromePicker} = Styles
 
 function ColorPickerForm(props) {
     const { currentColor, setCurrentColor } = props

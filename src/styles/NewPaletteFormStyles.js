@@ -7,7 +7,7 @@ import { TextValidator } from 'react-material-ui-form-validator';
 const drawerWidth = 400;
 
 const Styles = {
-    drawerWidth: 400,
+    drawerWidth: drawerWidth,
     Main: styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
         ({ theme, open }) => ({
             height: 'calc(100vh - 64px)',

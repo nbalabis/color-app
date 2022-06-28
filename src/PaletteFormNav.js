@@ -6,10 +6,9 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import PaletteMetaForm from './PaletteMetaForm';
-import './styles/PaletteFormNav.css'
 import Styles from './styles/PaletteFormNavStyles'
 
-const { NavButtons, Button } = Styles
+const { NavButtons, Button, Nav } = Styles
 
 function PaletteFormNav(props) {
     const [formShowing, setFormShowing] = useState(false)
@@ -25,7 +24,7 @@ function PaletteFormNav(props) {
     }
 
     return (
-        <div className='PaletteFormNav'>
+        <Nav>
             <CssBaseline />
             <AppBar position="fixed" open={open} color='default'>
                 <Toolbar>
@@ -60,7 +59,7 @@ function PaletteFormNav(props) {
                     hideForm={hideForm}
                 />
             )}
-        </div>
+        </Nav>
     );
 }
 
