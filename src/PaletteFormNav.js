@@ -1,17 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import CssBaseline from '@mui/material/CssBaseline';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import Button from '@mui/material/Button';
-import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 import PaletteMetaForm from './PaletteMetaForm';
 import './styles/PaletteFormNav.css'
+import Styles from './styles/PaletteFormNavStyles'
+
+const { NavButtons, Button } = Styles
 
 function PaletteFormNav(props) {
+    const [formShowing, setFormShowing] = useState(false)
+
     const { AppBar, open, handleDrawerOpen, handleSubmit, newPaletteName, setNewPaletteName, palettes } = props
+
+    const showForm = () => {
+        setFormShowing(true)
+    }
 
     return (
         <div className='PaletteFormNav'>
@@ -31,27 +38,23 @@ function PaletteFormNav(props) {
                         Create A Palette
                     </Typography>
                 </Toolbar>
-                <div className='nav-btns'>
-                    {/* <ValidatorForm onSubmit={handleSubmit}>
-                        <TextValidator
-                            value={newPaletteName}
-                            onChange={(evt) => setNewPaletteName(evt.target.value)}
-                            validators={['required', 'paletteNameUnique']}
-                            errorMessages={['Enter a palette name', 'Name already used']}
-                        />
-                        <Button type='submit' variant='contained' color='primary'>Save Palette</Button>
-                    </ValidatorForm> */}
-                    <PaletteMetaForm
-                        handleSubmit={handleSubmit}
-                        newPaletteName={newPaletteName}
-                        setNewPaletteName={setNewPaletteName}
-                        palettes={palettes}
-                    />
+                <NavButtons>
+                    <Button variant="contained" onClick={showForm}>
+                        Save
+                    </Button>
                     <Link to='/'>
                         <Button variant='contained' color='secondary'>Go Back</Button>
                     </Link>
-                </div>
+                </NavButtons>
             </AppBar>
+            {formShowing && (
+                <PaletteMetaForm
+                    handleSubmit={handleSubmit}
+                    newPaletteName={newPaletteName}
+                    setNewPaletteName={setNewPaletteName}
+                    palettes={palettes}
+                />
+            )}
         </div>
     );
 }

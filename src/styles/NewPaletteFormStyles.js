@@ -45,6 +45,7 @@ const Styles = {
         }),
         flexDirection: 'row',
         justifyContent: 'space-between',
+        alignItems: 'center',
         height: '64px',
         ...(open && {
             width: `calc(100% - ${drawerWidth}px)`,
