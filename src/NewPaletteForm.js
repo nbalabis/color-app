@@ -37,11 +37,6 @@ function NewPaletteForm(props) {
                 ({ color }) => color !== currentColor
             )
         });
-        ValidatorForm.addValidationRule('paletteNameUnique', (value) => {
-            return palettes.every(
-                ({ paletteName }) => paletteName.toLowerCase() !== value.toLowerCase()
-            )
-        });
     })
 
     const handleDrawerOpen = () => {
@@ -67,15 +62,13 @@ function NewPaletteForm(props) {
         setNewColorName(randomColor.name)
     }
 
-    const handleSubmit = () => {
-        const newPalette = {
-            paletteName: newPaletteName,
-            id: newPaletteName.toLowerCase().replace(/ /g, '-'),
-            colors: colors
-        }
+    const handleSubmit = (newPalette) => {
+        newPalette.id = newPalette.paletteName.toLowerCase().replace(/ /g, '-')
+        newPalette.colors = colors
         savePalette(newPalette)
         navigate('/')
     }
+
 
     const removeColor = (colorName) => {
         setColors(colors.filter(color => color.name !== colorName))
@@ -94,6 +87,7 @@ function NewPaletteForm(props) {
                 handleSubmit={handleSubmit}
                 newPaletteName={newPaletteName}
                 setNewPaletteName={setNewPaletteName}
+                palettes={palettes}
             />
             <Drawer
                 sx={{

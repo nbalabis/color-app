@@ -7,10 +7,11 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import Button from '@mui/material/Button';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
+import PaletteMetaForm from './PaletteMetaForm';
 import './styles/PaletteFormNav.css'
 
 function PaletteFormNav(props) {
-    const { AppBar, open, handleDrawerOpen, handleSubmit, newPaletteName, setNewPaletteName } = props
+    const { AppBar, open, handleDrawerOpen, handleSubmit, newPaletteName, setNewPaletteName, palettes } = props
 
     return (
         <div className='PaletteFormNav'>
@@ -31,7 +32,7 @@ function PaletteFormNav(props) {
                     </Typography>
                 </Toolbar>
                 <div className='nav-btns'>
-                    <ValidatorForm onSubmit={handleSubmit}>
+                    {/* <ValidatorForm onSubmit={handleSubmit}>
                         <TextValidator
                             value={newPaletteName}
                             onChange={(evt) => setNewPaletteName(evt.target.value)}
@@ -39,7 +40,13 @@ function PaletteFormNav(props) {
                             errorMessages={['Enter a palette name', 'Name already used']}
                         />
                         <Button type='submit' variant='contained' color='primary'>Save Palette</Button>
-                    </ValidatorForm>
+                    </ValidatorForm> */}
+                    <PaletteMetaForm
+                        handleSubmit={handleSubmit}
+                        newPaletteName={newPaletteName}
+                        setNewPaletteName={setNewPaletteName}
+                        palettes={palettes}
+                    />
                     <Link to='/'>
                         <Button variant='contained' color='secondary'>Go Back</Button>
                     </Link>
