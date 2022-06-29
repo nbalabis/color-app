@@ -23,7 +23,7 @@ function Palette(props) {
             key={color.id}
             colorId={color.id}
             paletteId={id}
-            showLink={true}
+            showingFullPalette
         />
     ))
     const changeFormat = (evt) => {
@@ -35,7 +35,7 @@ function Palette(props) {
     }
 
     return (
-        <div className={classes.palette}>
+        <div className={classes.Palette}>
             <Navbar
                 level={level}
                 setLevel={setLevel}
@@ -44,7 +44,7 @@ function Palette(props) {
                 open={snackbarOpen}
                 handleClose={closeSnackbar}
                 showingAllColors />
-            <div className={classes.paletteColors}>
+            <div className={classes.colors}>
                 {colorBoxes}
             </div>
             <PaletteFooter paletteName={paletteName} emoji={emoji} />

@@ -4,23 +4,24 @@ import { getPalette, gatherShades } from './paletteHelpers'
 import Navbar from './Navbar';
 import ColorBox from './ColorBox';
 import PaletteFooter from './PaletteFooter';
+import useStyles from './styles/PaletteStyles';
 
 function SingleColorPalette(props) {
     const [level, setLevel] = useState(500)
     const [format, setFormat] = useState('hex')
     const [snackbarOpen, setSnackbarOpen] = useState(false)
-
     const { paletteId, colorId } = useParams()
     const palette = getPalette(paletteId, props.palettes)
     const { paletteName, emoji } = palette
     const shades = gatherShades(palette, colorId).slice(1)
+    const classes = useStyles()
 
     const colorBoxes = shades.map(color => (
         <ColorBox
             key={color.name}
             name={color.name}
             background={color[format]}
-            showLink={false}
+            showingFullPalette={false}
         />
     ))
     const changeFormat = (evt) => {
@@ -32,7 +33,7 @@ function SingleColorPalette(props) {
     }
 
     return (
-        <div className='SingleColorPalette Palette'>
+        <div className={classes.Palette}>
             <Navbar
                 level={level}
                 setLevel={setLevel}
@@ -41,9 +42,9 @@ function SingleColorPalette(props) {
                 open={snackbarOpen}
                 handleClose={closeSnackbar}
                 showingAllColors={false} />
-            <div className='Palette-colors'>
+            <div className={classes.colors}>
                 {colorBoxes}
-                <div className='go-back ColorBox'>
+                <div className={classes.goBack}>
                     <Link to={`/palette/${paletteId}`} className='back-button'>GO BACK</Link>
                 </div>
             </div>
