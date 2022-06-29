@@ -6,14 +6,13 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import ColorLensIcon from '@mui/icons-material/ColorLens';
 import PaletteMetaForm from './PaletteMetaForm';
-import Styles from './styles/PaletteFormNavStyles'
-
-const { NavButtons, Button, Nav } = Styles
+import { useStyles, muiComponents } from './styles/PaletteFormNavStyles'
 
 function PaletteFormNav(props) {
     const [formShowing, setFormShowing] = useState(false)
-
-    const { AppBar, open, handleDrawerOpen, handleSubmit, newPaletteName, setNewPaletteName, palettes } = props
+    const { open, handleDrawerOpen, handleSubmit, newPaletteName, setNewPaletteName, palettes } = props
+    const classes = useStyles()
+    const { AppBar, Button } = muiComponents
 
     const showForm = () => {
         setFormShowing(true)
@@ -24,16 +23,16 @@ function PaletteFormNav(props) {
     }
 
     return (
-        <Nav>
+        <div className={classes.root}>
             <CssBaseline />
-            <AppBar position="fixed" open={open} color='default'>
+            <AppBar position="fixed" open={open} color='default' className={classes.appBar}>
                 <Toolbar>
                     <IconButton
                         color="inherit"
                         aria-label="open drawer"
                         onClick={handleDrawerOpen}
                         edge="start"
-                        sx={{ mr: 2, ...(open && { display: 'none' }) }}
+                        className={classes.menuButton}
                     >
                         <ColorLensIcon />
                     </IconButton>
@@ -41,14 +40,14 @@ function PaletteFormNav(props) {
                         Create A Palette
                     </Typography>
                 </Toolbar>
-                <NavButtons>
-                    <Button variant="contained" onClick={showForm}>
+                <div className={classes.navBtns}>
+                    <Link to='/'>
+                        <Button variant='contained' color='secondary' className={classes.button}>Go Back</Button>
+                    </Link>
+                    <Button variant="contained" onClick={showForm} className={classes.button}>
                         Save
                     </Button>
-                    <Link to='/'>
-                        <Button variant='contained' color='secondary'>Go Back</Button>
-                    </Link>
-                </NavButtons>
+                </div>
             </AppBar>
             {formShowing && (
                 <PaletteMetaForm
@@ -59,7 +58,7 @@ function PaletteFormNav(props) {
                     hideForm={hideForm}
                 />
             )}
-        </Nav>
+        </div>
     );
 }
 

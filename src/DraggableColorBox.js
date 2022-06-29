@@ -1,19 +1,19 @@
 import React from 'react';
 import { SortableElement } from 'react-sortable-hoc';
 import DeleteIcon from '@mui/icons-material/Delete';
-import Styles from './styles/DraggableColorBoxStyles'
-
-const { ColorBox, BoxContent } = Styles
+import useStyles from './styles/DraggableColorBoxStyles'
 
 function DraggableColorBox(props) {
     const { color, name, handleClick } = props
+    const classes = useStyles()
+
     return (
-        <ColorBox style={{ backgroundColor: color }}>
-            <BoxContent>
+        <div className={classes.root} style={{ backgroundColor: color }}>
+            <div className={classes.boxContent}>
                 <span>{name}</span>
-                <DeleteIcon className='delete-icon' onClick={handleClick} />
-            </BoxContent>
-        </ColorBox>
+                <DeleteIcon className={classes.deleteIcon} onClick={handleClick} />
+            </div>
+        </div>
     );
 }
 
