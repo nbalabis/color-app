@@ -4,10 +4,11 @@
   border-radius: 5px;
   padding: 0.5rem;
   position: relative;
+  cursor: pointer;
 }
 
-.MiniPalette:hover {
-  cursor: pointer;
+.MiniPalette:hover svg{
+  opacity: 1;
 }
 
 .colors {
@@ -42,3 +43,9 @@
   margin-left: 0.5rem;
   font-size: 1.5rem;
 }
+
+.delete {
+
+}
+
+
