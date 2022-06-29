@@ -4,7 +4,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import useStyles from './styles/MiniPaletteStyles';
 
 function MiniPalette(props) {
-    const { paletteName, emoji, colors, id, deletePalette } = props
+    const { paletteName, emoji, colors, id, openDialog } = props
     const classes = useStyles()
     let navigate = useNavigate()
 
@@ -14,7 +14,7 @@ function MiniPalette(props) {
 
     const handleDelete = (evt) => {
         evt.stopPropagation()
-        deletePalette(id)
+        openDialog(id)
     }
 
     return (
