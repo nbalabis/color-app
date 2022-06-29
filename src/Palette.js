@@ -4,13 +4,14 @@ import { getPalette } from './paletteHelpers'
 import Navbar from './Navbar';
 import ColorBox from './ColorBox';
 import PaletteFooter from './PaletteFooter';
-import './styles/Palette.css'
+import useStyles from './styles/PaletteStyles'
 
 function Palette(props) {
     const [level, setLevel] = useState(500)
     const [format, setFormat] = useState('hex')
     const [snackbarOpen, setSnackbarOpen] = useState(false)
 
+    const classes = useStyles()
     const { id } = useParams()
     const palette = getPalette(id, props.palettes)
     const { colors, paletteName, emoji } = palette
@@ -34,7 +35,7 @@ function Palette(props) {
     }
 
     return (
-        <div className='Palette'>
+        <div className={classes.palette}>
             <Navbar
                 level={level}
                 setLevel={setLevel}
@@ -43,7 +44,7 @@ function Palette(props) {
                 open={snackbarOpen}
                 handleClose={closeSnackbar}
                 showingAllColors />
-            <div className='Palette-colors'>
+            <div className={classes.paletteColors}>
                 {colorBoxes}
             </div>
             <PaletteFooter paletteName={paletteName} emoji={emoji} />
