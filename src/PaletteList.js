@@ -1,19 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import MiniPalette from './MiniPalette';
-import './styles/PaletteList.css'
+import useStyles from './styles/PaletteListStyles';
 
 function PaletteList(props) {
     const { palettes, deletePalette } = props
+    const classes = useStyles()
 
     return (
-        <div className='PaletteList'>
-            <div className='container'>
-                <nav className='nav'>
+        <div className={classes.root}>
+            <div className={classes.container}>
+                <nav className={classes.nav}>
                     <h1>React Colors</h1>
                     <Link to='/palette/new'>Create Palette</Link>
                 </nav>
-                <div className='palettes'>
+                <div className={classes.palettes}>
                     {palettes.map(palette => (
                         <MiniPalette {...palette} key={palette.id} deletePalette={deletePalette} />
                     ))}
