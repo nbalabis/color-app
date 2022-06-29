@@ -4,31 +4,36 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import './styles/MiniPalette.css'
 
 function MiniPalette(props) {
-    const { paletteName, emoji, colors, id } = props
+    const { paletteName, emoji, colors, id, deletePalette } = props
     let navigate = useNavigate()
+
     const handleClick = () => {
         navigate(`/palette/${id}`)
     }
 
+    const handleDelete = (evt) => {
+        evt.stopPropagation()
+        deletePalette(id)
+    }
+
     return (
         <div className='MiniPalette' onClick={handleClick}>
-            <div className='delete'>
-                <DeleteIcon
-                    sx={{
-                        color: 'white',
-                        backgroundColor: '#eb3d30',
-                        width: '20px',
-                        height: '20px',
-                        position: 'absolute',
-                        right: 0,
-                        top: 0,
-                        padding: '10px',
-                        zIndex: 10,
-                        opacity: 0,
-                        transition: 'all 0.3s ease-in-out',
-                    }}
-                />
-            </div>
+            <DeleteIcon
+                onClick={handleDelete}
+                sx={{
+                    color: 'white',
+                    backgroundColor: '#eb3d30',
+                    width: '20px',
+                    height: '20px',
+                    position: 'absolute',
+                    right: 0,
+                    top: 0,
+                    padding: '10px',
+                    zIndex: 10,
+                    opacity: 0,
+                    transition: 'all 0.3s ease-in-out',
+                }}
+            />
             <div className='colors'>
                 {colors.map(color => (
                     <div

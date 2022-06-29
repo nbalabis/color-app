@@ -18,10 +18,14 @@ function App() {
     setAllPalettes([...allPalettes, newPalette])
   }
 
+  const deletePalette = (paletteId) => {
+    setAllPalettes(allPalettes.filter(palette => palette.id !== paletteId))
+  }
+
   return (
     <div>
       <Routes>
-        <Route path='/' element={<PaletteList palettes={allPalettes} />} />
+        <Route path='/' element={<PaletteList palettes={allPalettes} deletePalette={deletePalette} />} />
         <Route path='/palette/new' element={<NewPaletteForm savePalette={savePalette} palettes={allPalettes} />} />
         <Route path='/palette/:id' element={<Palette palettes={allPalettes} />} />
         <Route path='/palette/:paletteId/:colorId' element={<SingleColorPalette palettes={allPalettes} />} />
