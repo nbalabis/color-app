@@ -7,26 +7,27 @@ import MenuItem from '@mui/material/MenuItem';
 import Snackbar from '@mui/material/Snackbar';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
-import './styles/Navbar.css'
+import useStyles from './styles/NavbarStyles';
 
 function Navbar(props) {
     const { level, setLevel, format, handleChange, open, handleClose, showingAllColors } = props
+    const classes = useStyles()
 
     const handleSelect = (evt) => {
         handleChange(evt)
     }
 
     return (
-        <header className='Navbar'>
-            <div className='logo'>
+        <header className={classes.Navbar}>
+            <div className={classes.logo}>
                 <Link to={'/'}>
                     reactcolorpicker
                 </Link>
             </div>
             {showingAllColors && (
-                <div className='slider-container'>
+                <div>
                     <span>Level: {level}</span>
-                    <div className='slider'>
+                    <div className={classes.slider}>
                         <Slider
                             defaultValue={level}
                             min={100}
@@ -50,7 +51,7 @@ function Navbar(props) {
                     </div>
                 </div>
             )}
-            <div className='select-container'>
+            <div className={classes.selectContainer}>
                 <Select
                     onChange={handleSelect}
                     value={format}

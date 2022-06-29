@@ -1,10 +1,11 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom";
 import DeleteIcon from '@mui/icons-material/Delete';
-import './styles/MiniPalette.css'
+import useStyles from './styles/MiniPaletteStyles';
 
 function MiniPalette(props) {
     const { paletteName, emoji, colors, id, deletePalette } = props
+    const classes = useStyles()
     let navigate = useNavigate()
 
     const handleClick = () => {
@@ -17,34 +18,23 @@ function MiniPalette(props) {
     }
 
     return (
-        <div className='MiniPalette' onClick={handleClick}>
+        <div className={classes.root} onClick={handleClick}>
             <DeleteIcon
                 onClick={handleDelete}
-                sx={{
-                    color: 'white',
-                    backgroundColor: '#eb3d30',
-                    width: '20px',
-                    height: '20px',
-                    position: 'absolute',
-                    right: 0,
-                    top: 0,
-                    padding: '10px',
-                    zIndex: 10,
-                    opacity: 0,
-                    transition: 'all 0.3s ease-in-out',
-                }}
+                className={classes.deleteIcon}
+                style={{ transition: "all 0.3s ease-in-out" }}
             />
-            <div className='colors'>
+            <div className={classes.colors}>
                 {colors.map(color => (
                     <div
-                        className='mini-color'
+                        className={classes.miniColor}
                         style={{ backgroundColor: color.color }}
                         key={color.name}
                     />
                 ))}
             </div>
-            <h5 className='title'>
-                {paletteName} <span className='emoji'>{emoji}</span>
+            <h5 className={classes.title}>
+                {paletteName} <span className={classes.emoji}>{emoji}</span>
             </h5>
         </div>
     );
