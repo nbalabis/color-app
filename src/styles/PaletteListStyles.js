@@ -1,13 +1,21 @@
 import { createUseStyles } from 'react-jss';
+import bg from './bg.svg'
 import sizes from './sizes';
 
 const useStyles = createUseStyles({
     root: {
-        backgroundColor: "blue",
-        height: "100vh",
+        minHeight: "100vh",
         display: "flex",
         alignItems: "flex-start",
-        justifyContent: "center"
+        justifyContent: "center",
+        /* background by SVGBackgrounds.com */
+        backgroundColor: '#5E07CC',
+        backgroundImage: `url(${bg})`,
+        backgroundAttachment: 'fixed',
+        backgroundSize: 'cover',
+    },
+    heading: {
+        fontSize: '2rem'
     },
     container: {
         width: "50%",
@@ -43,7 +51,7 @@ const useStyles = createUseStyles({
         },
         [sizes.down('xs')]: {
             gridTemplateColumns: "repeat(1, 100%)",
-            gridGap: '1rem'
+            gridGap: '1.4rem'
         }
     }
 })
