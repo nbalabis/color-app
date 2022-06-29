@@ -1,4 +1,5 @@
 import { createUseStyles } from 'react-jss';
+import sizes from './sizes';
 
 const useStyles = createUseStyles({
     root: {
@@ -13,7 +14,13 @@ const useStyles = createUseStyles({
         display: "flex",
         alignItems: "flex-start",
         flexDirection: "column",
-        flexWrap: "wrap"
+        flexWrap: "wrap",
+        [sizes.down('xlg')]: {
+            width: '80%'
+        },
+        [sizes.down('xs')]: {
+            width: '75%'
+        }
     },
     nav: {
         display: "flex",
@@ -30,7 +37,14 @@ const useStyles = createUseStyles({
         width: "100%",
         display: "grid",
         gridTemplateColumns: "repeat(3, 30%)",
-        gridGap: "5%"
+        gridGap: "2.5rem",
+        [sizes.down('md')]: {
+            gridTemplateColumns: "repeat(2, 50%)"
+        },
+        [sizes.down('xs')]: {
+            gridTemplateColumns: "repeat(1, 100%)",
+            gridGap: '1rem'
+        }
     }
 })
 
