@@ -1,4 +1,5 @@
 import { createUseStyles } from 'react-jss';
+import sizes from './sizes'
 import chroma from "chroma-js"
 
 const useStyles = createUseStyles({
@@ -12,6 +13,18 @@ const useStyles = createUseStyles({
         marginBottom: "-3.5px",
         "&:hover button": {
             opacity: 1
+        }, 
+        [sizes.down('lg')]: {
+            width: '25%',
+            height: props => (props.showingFullPalette ? "20%" : "40%")
+        },
+        [sizes.down('md')]: {
+            width: '50%',
+            height: props => (props.showingFullPalette ? "10%" : "40%")
+        },
+        [sizes.down('xs')]: {
+            width: '100%',
+            height: props => (props.showingFullPalette ? "5%" : "10%")
         }
     },
     copyText: {
