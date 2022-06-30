@@ -49,6 +49,11 @@ function App() {
               <SingleColorPalette palettes={allPalettes} />
             </Page>
           } />
+          <Route path='*' element={
+            <Page>
+              <PaletteList palettes={allPalettes} deletePalette={deletePalette} />
+            </Page>
+          } />
         </Routes>
       </CSSTransition>
     </TransitionGroup >
