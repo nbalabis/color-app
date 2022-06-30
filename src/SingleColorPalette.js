@@ -15,7 +15,6 @@ function SingleColorPalette(props) {
     const { paletteName, emoji } = palette
     const shades = gatherShades(palette, colorId).slice(1)
     const classes = useStyles()
-
     const colorBoxes = shades.map(color => (
         <ColorBox
             key={color.name}
@@ -24,6 +23,7 @@ function SingleColorPalette(props) {
             showingFullPalette={false}
         />
     ))
+
     const changeFormat = (evt) => {
         setFormat(evt.target.value)
         setSnackbarOpen(true)

@@ -10,7 +10,6 @@ function Palette(props) {
     const [level, setLevel] = useState(500)
     const [format, setFormat] = useState('hex')
     const [snackbarOpen, setSnackbarOpen] = useState(false)
-
     const classes = useStyles()
     const { id } = useParams()
     const palette = getPalette(id, props.palettes)

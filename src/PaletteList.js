@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import MiniPalette from './MiniPalette';
-import useStyles from './styles/PaletteListStyles';
 import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
 import List from '@mui/material/List';
@@ -14,6 +12,8 @@ import CloseIcon from '@mui/icons-material/Close';
 import Avatar from '@mui/material/Avatar';
 import { blue } from '@mui/material/colors';
 import { red } from '@mui/material/colors';
+import MiniPalette from './MiniPalette';
+import useStyles from './styles/PaletteListStyles';
 
 function PaletteList(props) {
     const [deleteDialogOpen, setDeleteDialogOpen] = useState(false)

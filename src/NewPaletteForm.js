@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { arrayMoveImmutable } from 'array-move';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import Typography from '@mui/material/Typography';
@@ -10,7 +11,6 @@ import { ValidatorForm } from 'react-material-ui-form-validator';
 import DraggableColorList from './DraggableColorList';
 import PaletteFormNav from './PaletteFormNav';
 import ColorPickerForm from './ColorPickerForm';
-import { arrayMoveImmutable } from 'array-move';
 import Styles from './styles/NewPaletteFormStyles'
 
 const { Main, AppBar, DrawerHeader, DrawerContainer, drawerWidth, ColorNameInput, AddButton, ButtonSection, Button } = Styles
