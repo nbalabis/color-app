@@ -5,7 +5,7 @@ import useStyles from './styles/DraggableColorBoxStyles'
 
 function DraggableColorBox(props) {
     const { color, name, handleClick } = props
-    const classes = useStyles()
+    const classes = useStyles(props)
 
     return (
         <div className={classes.root} style={{ backgroundColor: color }}>

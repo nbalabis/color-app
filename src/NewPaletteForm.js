@@ -8,6 +8,7 @@ import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import { ValidatorForm } from 'react-material-ui-form-validator';
+import seedColors from './seedColors'
 import DraggableColorList from './DraggableColorList';
 import PaletteFormNav from './PaletteFormNav';
 import ColorPickerForm from './ColorPickerForm';
@@ -22,7 +23,7 @@ function NewPaletteForm(props) {
     const [newColorName, setNewColorName] = useState('')
     const [newPaletteName, setNewPaletteName] = useState('')
     const { savePalette, palettes } = props
-    const [colors, setColors] = useState(palettes[0].colors)
+    const [colors, setColors] = useState(seedColors[0].colors)
     const paletteIsFull = colors.length >= maxColors
     let navigate = useNavigate()
 
@@ -137,7 +138,7 @@ function NewPaletteForm(props) {
                         setNewColorName={setNewColorName}
                         paletteIsFull={paletteIsFull}
                     />
-                    <ValidatorForm onSubmit={addNewColor} style={{ width: '100%' }}>
+                    <ValidatorForm onSubmit={addNewColor} style={{ width: '100%' }} instantValidate={false}>
                         <ColorNameInput
                             placeholder='Color Name'
                             margin='normal'
