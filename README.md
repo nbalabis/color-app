@@ -1,12 +1,113 @@
-# Getting Started with Create React App
+<div align="center">
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+  <img src="public/logo.png" alt="logo" width="200" height="auto" />
+  <h1>Color App</h1>
+  
+  <p>
+    A color-picker and palette creating app made with React 
+  </p>
+  
+  
+<!-- Badges -->
 
-## Available Scripts
+[![Contributors][contributors-shield]][contributors-url]
+![Last Commit][lastcommit-shield]
+[![MIT License][license-shield]][license-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
 
-In the project directory, you can run:
+<h4>
+    <a href="https://github.com/nbalabis/color-app/">View Demo</a>
+  <span> · </span>
+    <a href="https://github.com/nbalabis/color-app/issues/">Report Bug</a>
+  </h4>
+</div>
 
-### `npm start`
+<br />
+
+<!-- Table of Contents -->
+
+# :notebook_with_decorative_cover: Table of Contents
+
+- [About the Project](#star2-about-the-project)
+  - [Screenshots](#camera-screenshots)
+  - [Tech Stack](#space_invader-tech-stack)
+  - [Features](#dart-features)
+- [Getting Started](#toolbox-getting-started)
+  - [Prerequisites](#bangbang-prerequisites)
+  - [Run Locally](#running-run-locally)
+- [License](#warning-license)
+- [Contact](#handshake-contact)
+- [Acknowledgements](#gem-acknowledgements)
+
+<!-- About the Project -->
+
+## :star2: About the Project
+
+<!-- Screenshots -->
+
+### :camera: Screenshots
+
+<div align="center"> 
+  <img src="public/screenshots/homepage.png" alt="homepage" />
+  <img src="public/screenshots/palette-view.png" alt="palette view" />
+  <img src="public/screenshots/color-view.png" alt="color view" />
+  <img src="public/screenshots/palette-creator.png" alt="palette creator" />
+</div>
+
+<!-- TechStack -->
+
+### :space_invader: Tech Stack
+
+[![React][react.js]][react-url]
+[![MaterialUI][mui.js]][mui-url]
+[![HTML5][html5.js]][html5-url]
+[![CSS3][css3.js]][css3-url]
+
+<!-- Features -->
+
+### :dart: Features
+
+- Create and save custom color palettes
+- Copy hex, rgb, and rgba values from any saved palette
+- View different light levels for each color
+
+<!-- Getting Started -->
+
+## :toolbox: Getting Started
+
+<!-- Prerequisites -->
+
+### :bangbang: Prerequisites
+
+This project requires the latest versions of node and npm
+
+<!-- Run Locally -->
+
+### :running: Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/nbalabis/color-app.git
+```
+
+Go to the project directory
+
+```bash
+  cd color-app
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm start
+```
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
@@ -14,57 +115,48 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm test`
+<!-- License -->
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## :warning: License
 
-### `npm run build`
+Distributed under the MIT License. See LICENSE.txt for more information.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<!-- Contact -->
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## :handshake: Contact
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Nicholas Balabis - [LinkedIn](https://www.linkedin.com/in/nicholas-balabis-094571153/) - balabisnicholas@gmail.com
 
-### `npm run eject`
+Project Link: [https://github.com/nbalabis/color-app](https://github.com/nbalabis/color-app)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<!-- Acknowledgments -->
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## :gem: Acknowledgements
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Some awesome libraries used for this project:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- [rc-slider](https://github.com/react-component/slider)
+- [emoji-mart](https://github.com/missive/emoji-mart)
+- [chroma-js](https://gka.github.io/chroma.js/)
 
-## Learn More
+Built with the help of:
+ 
+- Colt Steele's [Modern React Bootcamp](https://www.udemy.com/course/modern-react-bootcamp/?utm_source=adwords&utm_medium=udemyads&utm_campaign=React_v.PROF_la.EN_cc.US_ti.7450&utm_content=deal4584&utm_term=_._ag_79286082406_._ad_532133511517_._kw__._de_c_._dm__._pl__._ti_dsa-774930034049_._li_9030078_._pd__._&matchtype=&gclid=Cj0KCQjwz96WBhC8ARIsAATR253VAr-06lVSB7NL3zJnGHIjpNQYRCsNzzlBPznigWpnLIXavB-Os5caAhw7EALw_wcB)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<!-- MARKDOWN LINKS & IMAGES -->
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://www.linkedin.com/in/nicholas-balabis-094571153/
+[contributors-shield]: https://img.shields.io/github/contributors/nbalabis/color-app.svg?style=for-the-badge
+[contributors-url]: https://github.com/nbalabis/color-app/graphs/contributors
+[lastcommit-shield]: https://img.shields.io/github/last-commit/nbalabis/color-app.svg?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/nbalabis/color-app.svg?style=for-the-badge
+[license-url]: https://github.com/nbalabis/color-app/blob/main/LICENSE
+[react.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[react-url]: https://reactjs.org/
+[mui.js]: https://img.shields.io/badge/Material%20UI-007FFF?style=for-the-badge&logo=mui&logoColor=FFFFFF
+[mui-url]: https://mui.com
+[html5.js]: https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=FFFFFF
+[html5-url]: https://developer.mozilla.org/en-US/docs/Glossary/HTML5
+[css3.js]: https://img.shields.io/badge/CSS3-d8dee3?style=for-the-badge&logo=css3&logoColor=1572B6
+[css3-url]: https://developer.mozilla.org/en-US/docs/Web/CSS
